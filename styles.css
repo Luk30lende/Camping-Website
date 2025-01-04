@@ -173,6 +173,9 @@ img {
 }
 
 /* Change background header */
+.bg-header {
+  box-shadow: 0 1px 16px rgba(28, 61, 95, 0.12);
+}
 
 /*=============== HOME ===============*/
 .home {
@@ -251,11 +254,129 @@ img {
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
+@media screen and (max-width: 305px) {
+  .container {
+    margin-inline: 16px;
+  }
+
+  .home_title {
+    font-size: 32px;
+  }
+}
 
 /* For taller devices */
+@media screen and (min-width: 376px) and (min-height: 800px) {
+  .home_container {
+    padding-top: 160px;
+  }
+  .home_images img {
+    width: 700px;
+    left: -192px;
+  }
+}
 
 /* For medium devices */
+@media screen and (min-width: 480px) {
+  .home_content {
+    max-width: 305px;
+  }
+  .home_bird-2 {
+    right: -48px;
+  }
+  .home_images img {
+    width: initial;
+    left: 0;
+  }
+}
 
 /* For large devices */
+@media screen and (min-width: 1023px) {
+  .nav {
+    height: calc(var(--header-height) + 32px);
+    column-gap: 64px;
+  }
+  .nav_toggle,
+  .nav_close {
+    display: none;
+  }
+  .nav_menu {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav_list {
+    flex-direction: row;
+    column-gap: 80px;
+  }
+  .nav_buttons {
+    flex-direction: row;
+    column-gap: 48px;
+  }
+  .nav_logo {
+    width: 48px;
+  }
+
+  .home_content {
+    max-width: 550px;
+  }
+  .home_data {
+    row-gap: 16px;
+  }
+  .home_subtitle {
+    font-size: var(--normal-font-size);
+  }
+  .home_description {
+    margin-bottom: 48px;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .container {
+    margin-inline: auto;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .home_container {
+    height: 950px;
+    padding-top: 160px;
+  }
+  .home_bird-1,
+  .home_bird-2 {
+    width: 80px;
+  }
+  .home_bird-1 {
+    bottom: -112px;
+    left: -112px;
+  }
+  .home_bird-2 {
+    top: 0;
+    right: -96px;
+  }
+  .home_images img {
+    bottom: -48px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 8px;
+    background-color: #1d232f;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #303b4f;
+  }
+}
 
 /* For 2K resolutions (2048 x 1152) */
+@media screen and (min-width: 2048px) {
+  .container {
+    max-width: 1300px;
+  }
+
+  .home_container {
+    height: 1200px;
+    padding-top: 240px;
+  }
+}
