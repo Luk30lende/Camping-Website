@@ -1,56 +1,31 @@
-const showMenu = (toggleId, navId) => {
-  const toggle = document.getElementById(toggleId),
-    nav = document.getElementById(navId);
+/*=============== SHOW MENU ===============*/
+const navMenu = document.getElementById("nav-menu");
+const navToggle = document.getElementById("nav-toggle");
+const navClose = document.getElementById("nav-close");
 
-  if (toggle && nav) {
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("show");
-    });
-  }
-};
-showMenu("nav-toggle", "nav-menu");
-
-gsap.from(".home__title", { opacity: 0, duration: 1.5, delay: 0.5, y: 50 });
-gsap.from(".home__description", {
-  opacity: 0,
-  duration: 1.5,
-  delay: 0.8,
-  y: 50,
-});
-gsap.from(".earbuds1", { opacity: 0, duration: 2, delay: 1.2, y: -40 });
-gsap.from(".earbuds2", { opacity: 0, duration: 2, delay: 1.4, y: 40 });
-gsap.from(".nav__logo", { opacity: 0, duration: 2.5, delay: 1.5, y: 25 });
-gsap.from(".nav__toggle", { opacity: 0, duration: 2.5, delay: 1.7, y: 25 });
-gsap.from(".nav__item", {
-  opacity: 0,
-  duration: 2.5,
-  delay: 1.9,
-  y: 25,
-  ease: "expo.out",
-  stagger: 0.3,
-});
-gsap.from(".nav__btn", { opacity: 0, duration: 2.5, delay: 2, y: 25 });
-gsap.from(".home__scroll", { opacity: 0, duration: 1.5, delay: 2.3, y: 30 });
-
-var animate = new TimelineMax({ onUpdate: updatePercentage });
-var controller = new ScrollMagic.Controller();
-
-animate
-  .from(".details__img", { opacity: 0, y: 25 })
-  .from(".details__box", {
-    opacity: 0,
-    y: 25,
-    duration: 1,
-    ease: "expo.out",
-    stagger: 0.4,
+/*===== MENU SHOW =====*/
+if (navToggle) {
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.add("show-menu");
   });
-
-var scene = new ScrollMagic.Scene({
-  triggerElement: ".details__box",
-})
-  .setTween(animate)
-  .addTo(controller);
-
-function updatePercentage() {
-  animate.progress();
 }
+
+/*===== MENU HIDDEN =====*/
+if (navClose) {
+  navClose.addEventListener("click", () => {
+    navMenu.classList.remove("show-menu");
+  });
+}
+
+/*=============== REMOVE MENU MOBILE ===============*/
+const navLink = document.querySelectorAll(".nav_link");
+
+const linkAction = () => {
+  const navMenu = document.getElementById("nav-menu");
+  navMenu.classList.remove("show-menu"); //remove menu when each nav link is clicked
+};
+navLink.forEach((n) => n.addEventListener("click", linkAction));
+
+/*=============== CHANGE BACKGROUND HEADER ===============*/
+
+/*=============== GSAP ANIMATION ===============*/
